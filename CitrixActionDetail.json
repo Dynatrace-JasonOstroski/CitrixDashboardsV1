@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.191.101.20200414-115902"
+  },
+  "id": "cc37b0bb-3735-4259-9f82-5d6b5b48945f",
+  "dashboardMetadata": {
+    "name": "Citrix - Action Detail",
+    "shared": false,
+    "owner": "${MyEmail}",
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": "",
+      "managementZone": {
+        "id": "${MZid}",
+        "name": "${MZname}"
+      }
+    }
+  },
+  "tiles": [
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 988,
+        "width": 152,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [⇦](#dashboard;id=5545aed6-a7e6-4c8d-8543-2c9165816ee4)\n![BackButton]()"
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 1026,
+        "height": 608
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Citrix Desktop Actions",
+      "query": "SELECT name, count(name) AS count, min(duration) AS min, avg(duration) AS avg, max(duration) AS max  FROM useraction WHERE application='${CustomApp}'  GROUP BY name ORDER BY count DESC",
+      "type": "TABLE",
+      "limit": 50
+    }
+  ]
+}

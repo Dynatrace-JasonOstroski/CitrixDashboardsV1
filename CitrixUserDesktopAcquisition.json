@@ -1,0 +1,234 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.191.101.20200414-115902"
+  },
+  "id": "120cc190-9bba-4763-a2bf-556fd41fcc4d",
+  "dashboardMetadata": {
+    "name": "Citrix - User Desktop Acquisition",
+    "shared": false,
+    "owner": "${MyEmail}",
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": "",
+      "managementZone": null
+    }
+  },
+  "tiles": [
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 228,
+        "left": 722,
+        "width": 532,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Desktop Startups ",
+      "query": "select count(name) as [Count], name as [Start Ups] from useraction where name STARTSWITH \"Start\" GROUP BY name",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 722,
+        "width": 532,
+        "height": 190
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Desktop Startup Duration",
+      "query": "select AVG(duration) as [Duration], name as [Start Ups] from useraction where name STARTSWITH \"Start\" and application=\"${CustomApp}\" GROUP BY name",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 418,
+        "left": 722,
+        "width": 532,
+        "height": 228
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Slowest Client Startups",
+      "query": "select usersession.userId as [User ID], name as [Desktop Client Name], duration as [Duration] FROM useraction where usersession.userId IS NOT NULL and name like \"*Start*\" and application=\"${CustomApp}\" group by usersession.userId, name, duration ORDER BY duration DESC",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 228,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Storefront Launches",
+      "query": "SELECT count(name) as [Count] from useraction where name like \"*launchica*\" and application=\"${MyApp}\"",
+      "type": "SINGLE_VALUE",
+      "timeFrameShift": "dynamic",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 38,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Citrix Logins",
+      "query": "SELECT count(name) as [Count] from useraction where name = \"Citrix login\" and application=\"${CustomApp}\"",
+      "type": "SINGLE_VALUE",
+      "timeFrameShift": "dynamic",
+      "limit": 50
+    },
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1216,
+        "width": 152,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [⇦](#dashboard;id=5545aed6-a7e6-4c8d-8543-2c9165816ee4)\n![BackButton]()"
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 494,
+        "left": 38,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Login Duration",
+      "query": "select avg(duration) as [Average] from useraction where name=\"Citrix login\" and application=\"${CustomApp}\"",
+      "type": "SINGLE_VALUE",
+      "timeFrameShift": "dynamic",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 494,
+        "left": 228,
+        "width": 190,
+        "height": 152
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Start Desktop",
+      "query": "select avg(duration) as [Average] from useraction where name like \"*Start*\" and application=\"${CustomApp}\" ",
+      "type": "SINGLE_VALUE",
+      "timeFrameShift": "dynamic",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 418,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Desktop Launch Time by Location",
+      "query": "SELECT avg(duration) as [Duration], usersession.city as [City] from useraction where name like \"*launchica*\" and application = \"${MyApp}\" and usersession.city IS NOT NULL GROUP BY usersession.city ORDER BY avg(duration) DESC",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 418,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Desktop Starts by Location",
+      "query": "SELECT count(name) as [Count], usersession.city as [City] from useraction where name like \"*launchica*\" and application = \"${MyApp}\" GROUP BY usersession.city",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 38,
+        "width": 380,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "User Experience Score",
+      "query": "select count(usersession.userSessionId) AS users, usersession.userExperienceScore FROM useraction where useraction.application=\"${CustomApp}\" group by usersession.userExperienceScore",
+      "type": "PIE_CHART",
+      "limit": 50
+    }
+  ]
+}

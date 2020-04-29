@@ -1,0 +1,120 @@
+{
+  "metadata": {
+    "configurationVersions": [
+      3
+    ],
+    "clusterVersion": "1.191.101.20200414-115902"
+  },
+  "id": "92ca65d6-53ab-4ab6-b76a-3f7bddccef78",
+  "dashboardMetadata": {
+    "name": "Citrix - Storefront Details",
+    "shared": false,
+    "owner": "${MyEmail}",
+    "sharingDetails": {
+      "linkShared": true,
+      "published": false
+    },
+    "dashboardFilter": {
+      "timeframe": "",
+      "managementZone": {
+        "id": "${MZid}",
+        "name": "${MZname}"
+      }
+    }
+  },
+  "tiles": [
+    {
+      "name": "Markdown",
+      "tileType": "MARKDOWN",
+      "configured": true,
+      "bounds": {
+        "top": 0,
+        "left": 1178,
+        "width": 152,
+        "height": 38
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "markdown": "## [⇦](#dashboard;id=5545aed6-a7e6-4c8d-8543-2c9165816ee4)\n![BackButton]()"
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 342,
+        "left": 0,
+        "width": 1216,
+        "height": 456
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Actions per City detail",
+      "query": "SELECT usersession.country AS Country, usersession.region AS Region, usersession.city AS City, count(usersession.city) AS actions, min(duration) as min, avg(duration) as avg, max(duration) AS max FROM useraction WHERE application='${MyApp}' GROUP BY Country,Region,City ORDER BY actions DESC",
+      "type": "TABLE",
+      "limit": 50
+    },
+    {
+      "name": "Service or request",
+      "tileType": "SERVICE_VERSATILE",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 304,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "assignedEntities": [
+        "$[MyServiceID}"
+      ]
+    },
+    {
+      "name": "Web application",
+      "tileType": "APPLICATION",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 0,
+        "width": 304,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "assignedEntities": [
+        "${InternalAppID}"
+      ]
+    },
+    {
+      "name": "User Sessions Query",
+      "tileType": "DTAQL",
+      "configured": true,
+      "bounds": {
+        "top": 38,
+        "left": 608,
+        "width": 608,
+        "height": 304
+      },
+      "tileFilter": {
+        "timeframe": null,
+        "managementZone": null
+      },
+      "customName": "Storefront Network Time",
+      "query": "select DISTINCT DATETIME(starttime, \"HH:mm\", \"15m\") as \"Time\", AVG(networkTime) as \"Network Time (Avg)\" from useraction where application=\"${MyApp}\"",
+      "type": "LINE_CHART",
+      "visualizationConfig": {
+        "hasAxisBucketing": true
+      },
+      "limit": 50
+    }
+  ]
+}
