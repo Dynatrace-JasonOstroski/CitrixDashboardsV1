@@ -347,7 +347,7 @@
         }
       },
       "customName": "ICA Latency",
-      "query": "select DISTINCT DATETIME(endTime, \"HH:mm\", \"15m\") as \"Time\", AVG(useraction.duration) as \"Duration\" from usersession where useraction.name = \"ICA latency measurement\" and application=\"${CustomApp}\" limit 8",
+      "query": "select DISTINCT DATETIME(endTime, \"HH:mm\", \"15m\") as \"Time\", AVG(useraction.duration) as \"Duration\" from usersession where useraction.name = \"ICA latency measurement\" and useraction.application=\"${CustomApp}\" limit 8",
       "type": "LINE_CHART",
       "visualizationConfig": {
         "hasAxisBucketing": true
@@ -372,7 +372,7 @@
         }
       },
       "customName": "ICA Launch",
-      "query": "select DISTINCT DATETIME(useraction.endtime, \"HH:mm\", \"15m\"), avg(useraction.duration) as average from usersession where useraction.name like \"*/launchica/*\" and application=\"${MyApp}\" limit 8",
+      "query": "select DISTINCT DATETIME(useraction.endtime, \"HH:mm\", \"15m\"), avg(useraction.duration) as average from usersession where useraction.name like \"*/launchica/*\" and useraction.application=\"${MyApp}\" limit 8",
       "type": "LINE_CHART",
       "visualizationConfig": {
         "hasAxisBucketing": true
