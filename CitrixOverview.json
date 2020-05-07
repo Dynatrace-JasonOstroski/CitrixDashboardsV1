@@ -7,7 +7,7 @@
   },
   "id": "5545aed6-a7e6-4c8d-8543-2c9165816ee4",
   "dashboardMetadata": {
-    "name": "${MyTenant} Citrix - Overview",
+    "name": "Citrix - Overview",
     "shared": false,
     "owner": "${MyEmail}",
     "sharingDetails": {
