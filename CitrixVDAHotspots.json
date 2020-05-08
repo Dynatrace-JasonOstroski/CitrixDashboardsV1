@@ -66,13 +66,7 @@
           ],
           "resultMetadata": {}
         },
-        "filtersPerEntityType": {
-          "HOST": {
-            "AUTO_TAGS": [
-              "Citrix"
-            ]
-          }
-        }
+        "filtersPerEntityType": {}
       }
     },
     {
