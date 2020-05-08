@@ -66,13 +66,6 @@
           ],
           "resultMetadata": {}
         },
-        "filtersPerEntityType": {
-          "HOST": {
-            "AUTO_TAGS": [
-              "Citrix"
-            ]
-          }
-        }
       }
     },
     {
@@ -118,13 +111,6 @@
           ],
           "resultMetadata": {}
         },
-        "filtersPerEntityType": {
-          "HOST": {
-            "AUTO_TAGS": [
-              "Citrix"
-            ]
-          }
-        }
       }
     },
     {
@@ -216,13 +202,6 @@
           ],
           "resultMetadata": {}
         },
-        "filtersPerEntityType": {
-          "PROCESS_GROUP_INSTANCE": {
-            "AUTO_TAGS": [
-              "Citrix"
-            ]
-          }
-        }
       }
     },
     {
@@ -328,13 +307,6 @@
           ],
           "resultMetadata": {}
         },
-        "filtersPerEntityType": {
-          "PROCESS_GROUP_INSTANCE": {
-            "AUTO_TAGS": [
-              "Citrix"
-            ]
-          }
-        }
       }
     },
     {
@@ -380,13 +352,6 @@
           ],
           "resultMetadata": {}
         },
-        "filtersPerEntityType": {
-          "HOST": {
-            "AUTO_TAGS": [
-              "Citrix"
-            ]
-          }
-        }
       }
     },
     {
@@ -432,13 +397,6 @@
           ],
           "resultMetadata": {}
         },
-        "filtersPerEntityType": {
-          "HOST": {
-            "AUTO_TAGS": [
-              "Citrix"
-            ]
-          }
-        }
       }
     },
     {
@@ -484,13 +442,6 @@
           ],
           "resultMetadata": {}
         },
-        "filtersPerEntityType": {
-          "HOST": {
-            "AUTO_TAGS": [
-              "Citrix"
-            ]
-          }
-        }
       }
     },
     {
